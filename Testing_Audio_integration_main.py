@@ -23,13 +23,13 @@ pygame.init()  # insslatize all pygame
 
 """" lad the mp3 files"""
 """" lad the mp3 files"""
-r= open("/Users/okand/Documents/school/code/pydub-master/tiger.wav",)
-s= open("/Users/okand/Documents/school/code/pydub-master/tiger1.wav",)
-s= open("/Users/okand/Documents/school/code/pydub-master/tiger3.wav",)
+Tiger= open("/Users/okand/Documents/school/code/ChoosingRightAnswer/Audio/Tiger.wav",)
+circle= open("/Users/okand/Documents/school/code/ChoosingRightAnswer/Audio/Circle_Circulo.wav",)
+#s= open("/Users/okand/Documents/school/code/Choosing_Right_Answer/tiger3.wav",)
 
-right = pygame.mixer.Sound("tiger.wav")
-tiger1 = pygame.mixer.Sound("tiger1.wav")
-tiger3 = pygame.mixer.Sound("tiger3.wav")
+Tiger = pygame.mixer.Sound(Tiger)
+circle = pygame.mixer.Sound(circle)
+#tiger3 = pygame.mixer.Sound("tiger3.wav")
 
 "setting up the display parmeters"
 display_width = 600
@@ -171,7 +171,7 @@ def main():
         elif screen==1:
             Img =   pygame.image.load(os.path.join(image_path, "Lala_showerd.jpg"))
             gameDisplay.blit(Img, (0, 0))
-            pygame.mixer.Sound.play(tiger3)
+            pygame.mixer.Sound.play(circle)
             pygame.mixer.music.stop()
             time.sleep(3)
             if NewRightButton == 1:
@@ -191,11 +191,7 @@ def main():
             gameDisplay.blit(Img, (0, 0))
             pygame.mixer.Sound.play(right)
             pygame.mixer.music.stop()
-            
-            time.sleep(2)
-            pygame.mixer.Sound.play(tiger1)
-            pygame.mixer.music.stop()
-            time.sleep(4)
+            time.sleep(3)
             if NewRightButton == 1:
                 button("ross", 150,  green, bright_green, s2t)
                 button("Cat", 50,  blue, bright_bule, st2)
