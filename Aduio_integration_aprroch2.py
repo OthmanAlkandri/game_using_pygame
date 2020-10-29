@@ -23,13 +23,11 @@ pygame.init()  # insslatize all pygame
 
 """" lad the mp3 files"""
 """" lad the mp3 files"""
-r= open("/Users/okand/Documents/school/code/pydub-master/tiger.wav",)
-s= open("/Users/okand/Documents/school/code/pydub-master/tiger1.wav",)
-s= open("/Users/okand/Documents/school/code/pydub-master/tiger3.wav",)
+r= open("/Users/okand/Documents/school/code/ChoosingRightAnswer/Audio/Tiger.wav",)
+s= open("/Users/okand/Documents/school/code/ChoosingRightAnswer/Audio/HeartCorazon.wav",)
 
-right = pygame.mixer.Sound("tiger.wav")
-tiger1 = pygame.mixer.Sound("tiger1.wav")
-tiger3 = pygame.mixer.Sound("tiger3.wav")
+right = pygame.mixer.Sound(r)
+circle = pygame.mixer.Sound(s)
 
 "setting up the display parmeters"
 display_width = 600
@@ -48,7 +46,7 @@ bright_bule = (0, 255, 0)
 
 """"Setting display. note the starderd we use is 600*600 display limtation"""
 gameDisplay = pygame.display.set_mode((display_width, display_height))
-pygame.display.set_caption("guessing Game")  # title of the window
+pygame.display.set_caption("Guessing Game")  # title of the window
 gameDisplay.fill(white)
 
 
@@ -152,9 +150,6 @@ def load_Img  (x):
          gameDisplay.blit(Img, (0, 0))
          pygame.mixer.Sound.play(right)
          pygame.mixer.music.stop()
-         
-         pygame.mixer.Sound.play(tiger1)
-         pygame.mixer.music.stop()
        
          print ('screen', screen)
   
@@ -164,10 +159,10 @@ def load_Img  (x):
      elif x ==2:
          Img = pygame.image.load(os.path.join(image_path, "Ross.jpg"))
          gameDisplay.blit(Img, (0, 0))
-         pygame.mixer.Sound.play(tiger3)
+         pygame.mixer.Sound.play(circle)
         
          pygame.mixer.music.stop()
-         
+    
 
      return (Img)
  
