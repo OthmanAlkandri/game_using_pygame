@@ -131,14 +131,19 @@ def st2():
 
 
 
+""" This fuction is to take the screeen vaule from main fuction 
+and increase it by one"""
 def game():
     global screen
-    # screen in range (0,2)
     screen +=1
+    
+    
+""" This fuction is to take the screeenS vaule wich is equal to 4
+    from main fuction  and increase it by one"""
 def gameS():
     global screen
-    screen == 4
-    screen +=1
+    screen = screenS +1
+    
 """ this fucntioin to lad the images with respect to the screen and play the 
 audio file for the screen Note the recoreded file says tiger but its for 
 testing perpouse """
@@ -177,7 +182,9 @@ def main():
     NewRightButton = random.randint(1, 2)
     Zyaid = True
     global screen
+    global screenS
     screen = 0
+    screenS = 4
     while Zyaid:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -190,7 +197,7 @@ def main():
             Img =   pygame.image.load(os.path.join(image_path, "Lala_showerd.jpg"))
             gameDisplay.blit(Img, (0, 0))
             button("Quit", 450, red, bright_red, close)
-            button("play", 150, green, bright_green, game)
+            button("English", 150, green, bright_green, game)
             button("Spainsh", 50, blue, bright_bule, gameS)
             pygame.display.update()
 
@@ -278,6 +285,14 @@ def main():
                 button("ross", 50,  blue, bright_bule, s2t)
                 button("Quit", 450, red, bright_red, close)
                 pygame.display.update()
+        elif screen==7:
+            Img = pygame.image.load(os.path.join(image_path, "Lala_showerd.jpg"))
+            gameDisplay.blit(Img, (0, 0))
+            message_display("end of the game")
+            button("Quit", 450, red, bright_red, close)
+            pygame.display.update()
+            print("end of the game")
+            Zyaid = False 
 
 if __name__ == "__main__":
     main()
