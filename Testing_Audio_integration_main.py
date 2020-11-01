@@ -16,7 +16,7 @@ import pygame
 import random  # we use this to make a random right button
 import os
 import sys
-from pygame import mixer 
+# from pygame import mixer 
 import time 
 
 pygame.init()  # insslatize all pygame
@@ -113,9 +113,6 @@ def s2t():
     gameDisplay.blit(Img, (0, 0))
     message_display("good job")
     print("good job")
-    # mixer.init()
-    # mixer.music.load ("myfile.mp3")
-    # mixer.music.play()
     screen += 1
 
 
@@ -132,15 +129,19 @@ def st2():
 
 
 
-
+""" This fuction is to take the screeen vaule from main fuction 
+and increase it by one"""
 def game():
     global screen
-    # screen in range (0,2)
     screen +=1
+    
+    
+""" This fuction is to take the screeenS vaule wich is equal to 4
+    from main fuction  and increase it by one"""
 def gameS():
     global screen
-    screen == 4
-    screen +=1
+    screen = screenS +1
+    
     
 """" In The main function is to show the frist screen with 
 two buttons options play or quit. if the user choes quit. the game will quit.
@@ -152,14 +153,16 @@ def main():
     NewRightButton = random.randint(1, 2)
     Zyaid = True
     global screen
+    global screenS
     screen = 0
+    screenS = 4
     while Zyaid:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
 
-        if screen==0:
+        if screen==0 and screenS==4 :
             global Img
             Img =   pygame.image.load(os.path.join(image_path, "Lala_showerd.jpg"))
             gameDisplay.blit(Img, (0, 0))
@@ -171,7 +174,7 @@ def main():
         elif screen==1:
             Img =   pygame.image.load(os.path.join(image_path, "Lala_showerd.jpg"))
             gameDisplay.blit(Img, (0, 0))
-            pygame.mixer.Sound.play(circle)
+            pygame.mixer.Sound.play(Tiger)
             pygame.mixer.music.stop()
             time.sleep(3)
             if NewRightButton == 1:
@@ -189,7 +192,7 @@ def main():
         elif screen==2:
             Img = pygame.image.load(os.path.join(image_path, "Ross.jpg"))
             gameDisplay.blit(Img, (0, 0))
-            pygame.mixer.Sound.play(right)
+            pygame.mixer.Sound.play(circle)
             pygame.mixer.music.stop()
             time.sleep(3)
             if NewRightButton == 1:
@@ -256,6 +259,14 @@ def main():
                 button("ross", 50,  blue, bright_bule, s2t)
                 button("Quit", 450, red, bright_red, close)
                 pygame.display.update()
+        elif screen==7:
+            Img = pygame.image.load(os.path.join(image_path, "Lala_showerd.jpg"))
+            gameDisplay.blit(Img, (0, 0))
+            message_display("end of the game")
+            button("Quit", 450, red, bright_red, close)
+            pygame.display.update()
+            print("end of the game")
+            Zyaid = False 
 
 if __name__ == "__main__":
     main()
